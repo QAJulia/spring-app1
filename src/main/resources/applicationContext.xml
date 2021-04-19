@@ -13,7 +13,8 @@
           class="opg.example.ClassicalMusic">
     </bean>
     <bean id="musicPlayer"
-          class="opg.example.MusicPlayer">
+          class="opg.example.MusicPlayer"
+    scope="prototype">
         <!--<constructor-arg ref="musicBean"/>-->
         <property name="music" ref="musicBean"/>
         <property name="name" value="${musicPlayer.name}"/>
