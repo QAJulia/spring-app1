@@ -1,44 +1,34 @@
 package opg.example;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MusicPlayer {
+//    @Autowired
+//    private Music music;
+//
+////    //способ 1 - autowired над конструктором
+////    @Autowired
+////    public MusicPlayer(Music music) {
+////        this.music = music;
+////    }
+//
+////    //способ 2 - autowired над сеттером
+////    @Autowired
+////    public void setMusic(Music music) {
+////        this.music = music;
+////    }
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
 
-    private Music music;
-    private String name;
-    private int volume;
-
-
-    public String getName() {
-        return name;
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    //IoC
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
-
-    public MusicPlayer() {
-    }
-
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
-    public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+    public String playMusic() {
+        return "Playing: " + classicalMusic.getSong();
     }
 }
