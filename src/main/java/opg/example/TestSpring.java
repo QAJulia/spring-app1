@@ -2,8 +2,6 @@ package opg.example;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.concurrent.CopyOnWriteArrayList;
-
 public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
